@@ -26,6 +26,7 @@ const NewsTicker = () => {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [showUdan, setShowUdan] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -40,6 +41,7 @@ const Navbar = () => {
   useEffect(() => {
     setIsOpen(false);
     setShowMore(false);
+    setShowUdan(false);
   }, [location.pathname]);
 
   // Lock body scroll when mobile menu open
@@ -66,9 +68,19 @@ const Navbar = () => {
     { label: "Gallery", path: "/gallery" },
     { label: "Blog", path: "/blog" },
     { label: "Announcements", path: "/announcements" },
-    { label: "Careers", path: "/career" },
-    { label: "Hamipatra", path: "/pdf/hamipatra.pdf" },
-    { label: "Fees", path: "/images/fees.jpg" }
+    { label: "Careers", path: "/career" }
+  ];
+
+  // Udan dropdown links
+  const udanLinks = [
+    { path: "/books/Udan1.pdf", label: "Udan 1" },
+    { path: "/books/Udan2.pdf", label: "Udan 2" },
+    { path: "/books/Udan3.pdf", label: "Udan 3" },
+    { path: "/books/Udan4.pdf", label: "Udan 4" },
+    { path: "/books/Udan5.pdf", label: "Udan 5" },
+    { path: "/books/Udan6.pdf", label: "Udan 6" },
+    { path: "/books/Udan7.pdf", label: "Udan 7" },
+    { path: "/books/Udan8.pdf", label: "Udan 8" },
   ];
 
   return (
@@ -147,6 +159,52 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+
+          {/* UDAN DROPDOWN */}
+          <div
+            className="relative"
+            onMouseEnter={() => setShowUdan(true)}
+            onMouseLeave={() => setShowUdan(false)}
+          >
+            <button
+              className="px-4 py-2 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-100"
+              aria-haspopup="true"
+              aria-expanded={showUdan}
+            >
+              Udan ▾
+            </button>
+
+            <AnimatePresence>
+              {showUdan && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute left-0 mt-2 w-44 bg-white rounded-md shadow-lg border"
+                >
+                  {udanLinks.map((link) => (
+                    <div key={link.path} className="flex items-center justify-between px-4 py-2 hover:bg-gray-100 rounded">
+                      <a
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600"
+                      >
+                        {link.label}
+                      </a>
+                      <a
+                        href={link.path}
+                        download
+                        className="text-xs text-blue-600 hover:underline ml-2"
+                      >
+                        Download
+                      </a>
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
           {/* MORE DROPDOWN */}
           <div
@@ -245,6 +303,38 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
+
+              {/* MOBILE UDAN TOGGLE */}
+              <button
+                onClick={() => setShowUdan(!showUdan)}
+                className="w-full text-left px-4 py-3 font-medium rounded-lg hover:bg-gray-100"
+                aria-expanded={showUdan}
+              >
+                Udan ▾
+              </button>
+
+              <AnimatePresence>
+                {showUdan && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="ml-4"
+                  >
+                    {udanLinks.map((link) => (
+                      <a
+                        key={link.path}
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-gray-600 hover:bg-gray-100 rounded"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
               {/* MOBILE MORE TOGGLE */}
               <button

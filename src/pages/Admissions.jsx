@@ -94,6 +94,86 @@ const Admissions = () => {
         </div>
       </section>
 
+      {/* Downloads Section */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-primary mb-4">Important Documents</h2>
+            <p className="text-xl text-gray-600">Download admission forms and view fee structure</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Hamipatra PDF */}
+          <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.5 }}
+  className="bg-white p-8 rounded-xl shadow-lg text-center"
+>
+  {/* Icon */}
+  <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+    📄
+  </div>
+
+  {/* Title */}
+  <h3 className="text-xl font-semibold text-primary mb-4">
+    Hamipatra
+  </h3>
+
+  {/* Description */}
+  <p className="text-gray-600 mb-6">
+    Download the admission document
+  </p>
+
+  {/* Button (with motion) */}
+  <motion.a
+    href="/pdf/Hamipatra.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+  >
+    Download Hamipatra
+  </motion.a>
+</motion.div>
+            {/* Fees Slip */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-8 rounded-xl shadow-lg text-center"
+            >
+              <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                💰
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-4">Fee Structure</h3>
+              <p className="text-gray-600 mb-6">View our fee structure and payment details</p>
+              <a
+                href="/images/fees.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+              >
+                View Fee Structure
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
