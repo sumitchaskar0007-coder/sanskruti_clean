@@ -63,11 +63,7 @@ lerna-debug.log*
 # ========================
 # Build / Production
 # ========================
-dist/
-build/
-out/
-.next/
-.cache/
+
 
 # ========================
 # Environment files
