@@ -109,45 +109,37 @@ const Admissions = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Hamipatra PDF */}
-          <motion.div
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5 }}
-  className="bg-white p-8 rounded-xl shadow-lg text-center"
->
-  {/* Icon */}
-  <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-    📄
-  </div>
-
-  {/* Title */}
-  <h3 className="text-xl font-semibold text-primary mb-4">
-    Hamipatra
-  </h3>
-
-  {/* Description */}
-  <p className="text-gray-600 mb-6">
-    Download the admission document
-  </p>
-
-  {/* Button (with motion) */}
-  <motion.a
-    href="/pdf/Hamipatra.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-    transition={{ duration: 0.4 }}
-    viewport={{ once: true }}
-  >
-    Download Hamipatra
-  </motion.a>
-</motion.div>
+            {/* Hamipatra PDF - Opens directly in a new tab */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white p-8 rounded-xl shadow-lg text-center"
+            >
+              <div className="w-16 h-16 bg-red-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+                📄
+              </div>
+              <h3 className="text-xl font-semibold text-primary mb-4">Hamipatra</h3>
+              <p className="text-gray-600 mb-6">
+                Click the button below to view or download the admission document.
+              </p>
+              <motion.a
+                href="https://drive.google.com/file/d/12bW9kVLJaZaOyqBX6nkHE3TtZUwpV-hb/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+              >
+                Open Hamipatra (PDF)
+              </motion.a>
+            </motion.div>
+            
             {/* Fees Slip */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -165,7 +157,7 @@ const Admissions = () => {
                 href="/images/fees.jpg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+                className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 View Fee Structure
               </a>
@@ -280,7 +272,6 @@ const Admissions = () => {
                           <option value="Class VIII">Class VIII</option>
                           <option value="Class IX">Class IX</option>
                           <option value="Class X">Class X</option>
-
                         </select>
                       </div>
 
@@ -345,12 +336,3 @@ const Admissions = () => {
 }
 
 export default Admissions
-
-
-
-
-
-
-
-
-
